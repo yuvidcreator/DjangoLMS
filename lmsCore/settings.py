@@ -32,7 +32,7 @@ else:
 
 
 
-ALLOWED_HOSTS = ["127.0.0.1","localhost",]
+ALLOWED_HOSTS = ["127.0.0.1","localhost","65.0.229.181"]
 
 
 # Application definition
