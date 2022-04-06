@@ -1,0 +1,10 @@
+{% load static %}
+<div class="three wide tablet only three wide computer only column" id="sidebar" >
+    <div class="ui vertical borderless fluid text menu">
+        <a class="active item" href="{% url 'accounts:admin_dashboard' %}">Overview</a>
+        <a class="item" href="{% url 'accounts:admin_dashboard' %}">All Books</a>
+        <a class="item"href="#">Issued Books</a>
+        <a class="item" href="{% url 'accounts:admin_dashboard' %}">All Students</a>
+        <a class="item" href="{% url 'accounts:logout' %}">Logout</a>
+    </div>
+</div>

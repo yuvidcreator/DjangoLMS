@@ -1,0 +1,110 @@
+
+<!DOCTYPE html>{% load static %}{% load widget_tweaks %}
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2, user-scalable=no" />
+
+    <meta name="author" content="Yuvraaj Limbole" />
+    
+    <title>Student Login</title>
+    <link rel="stylesheet" href="{% static 'css/semantic.min.css' %}" type="text/css" />
+
+
+    <style type="text/css">
+      body {
+        background-color: #eee;
+        -webkit-font-smoothing: antialiased;
+        -moz-font-smoothing: grayscale;
+      }
+
+      .ui.container {
+        margin-top: 18rem;
+        max-width: 36rem !important;
+        
+      }
+
+      .ui.large.form > .field:first-child {
+        margin-bottom: 3;
+      }
+
+      .ui.button {
+        background-color: rgb(8, 50, 236);
+        color: white;
+      }
+
+      .ui.button:hover {
+        background-color: rgb(0, 0, 0);
+        color: white;
+      }
+    </style>
+  </head>
+
+  <body id="root">
+    <div class="ui center aligned grid">
+        <div class="ui container">
+            <h1 class="ui huge header">Admin Signup</h1>
+            <form class="ui large form" method="post">
+              {% csrf_token %}
+              <div class="field">
+                <div class="ui input">
+                    {% render_field form.user_name class="" placeholder="Username" type="text" %}
+                    <div id="username-error"></div>
+                    <!-- <input name="username" placeholder="Username" type="text" /> -->
+                </div>
+              </div>
+                <div class="field">
+                    <div class="ui input">
+                      {% render_field form.email class="" placeholder="Email address" type="text" %}
+                    <div id="username-error"></div>
+                        <!-- <input name="email" placeholder="Email address" type="text" /> -->
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="ui input">
+                      {% render_field form.password class="" placeholder="Enter Password" %}
+
+                      <!-- <input name="password" placeholder="Enter Password" type="password" /> -->
+                    </div>
+                </div>
+                <div class="field">
+                  <div class="ui input">
+                    {% render_field form.password2 class="" placeholder="Repeate Password" %}
+                      <!-- <input name="password2" placeholder="Enter Password Again" type="password" /> -->
+                  </div>
+                </div>
+                <div class="field">
+                    <div class="ui checkbox">
+                        <input class="hidden" tabindex="0" type="checkbox" />
+                        <label>Aggree to Terms of Services</label>
+                    </div>
+                </div>
+                <button class="ui fluid large button" type="submit">Submit & Register</button>
+            </form>
+            <br />
+            <div class="field">
+              <div class="ui">
+                  <a href="{% url 'accounts:Admin-Login' %}" style="color: rgb(47, 48, 33);">Already have an Account?</a>
+              </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'js/semantic.min.js' %}"></script>
+    <script src="{% static 'js/htmx.min.js' %}"></script>
+
+    <script>
+      $(document).ready(function() {
+        $(".ui.checkbox").checkbox();
+      });
+    </script>
+  </body>
+</html>

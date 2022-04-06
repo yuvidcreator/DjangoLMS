@@ -1,0 +1,71 @@
+{% load static %}
+<div class="ui tablet computer only padded grid">
+    <div class="ui inverted borderless top fixed fluid menu">
+      <a class="header item" href="{% url 'accounts:admin_dashboard' %}">Book Library</a>
+      <div class="right menu">
+        {% comment %}
+        <div class="item">
+          <div class="ui small input"><input placeholder="Search..." /></div>
+        </div>
+        {% endcomment %}
+        <div class="ui dropdown item">
+          Account <i class="dropdown icon"></i>
+          <div class="menu">
+            <a class="item" href="{% url 'accounts:admin_edit_details' %}">Profile </a> 
+            <a class="item" href="{% url 'accounts:admin_dashboard' %}"> Dashboard </a> 
+            <div class="ui divider"></div>
+            <a class="item" href="{% url 'accounts:logout' %}">Logout</a> 
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="ui mobile only padded grid">
+    <div class="ui top fixed borderless fluid inverted menu">
+      <a class="header item" href="{% url 'accounts:admin_dashboard' %}">Book Library</a>
+      <div class="right menu">
+        <div class="item">
+          <button class="ui icon toggle basic inverted button">
+            <i class="content icon"></i>
+          </button>
+        </div>
+      </div>
+      
+      <div class="ui vertical borderless inverted fluid menu">
+        <div class="ui dropdown item">
+          Profile<i class="dropdown icon"></i>
+          <div class="menu">
+            <a class="item" href="{% url 'accounts:admin_edit_details' %}"> Settings </a> 
+            <a class="item" href="{% url 'accounts:admin_dashboard' %}"> Dashboard</a>
+          </div>
+        </div>
+        <div class="ui dropdown item">
+          Books Updates <i class="dropdown icon"></i>
+          <div class="menu">
+            <a class="item" href="{% url 'accounts:add_book' %}"> Add Book </a> 
+            <a class="item" href="{% url 'accounts:all_books' %}"> View All Books</a>
+          </div>
+        </div>
+        <div class="ui dropdown item">
+          Students <i class="dropdown icon"></i>
+          <div class="menu">
+            <a class="item" href="{% url 'accounts:admin_dashboard' %}"> View All Students </a> 
+          </div>
+        </div>
+        <div class="ui fitted divider"></div>
+        {% comment %}
+        <div class="item">
+            <div class="ui small input">
+                <input placeholder="Search..." />
+            </div>
+        </div>
+        {% endcomment %}
+        <div class="ui item">
+          <a class="item" href="{% url 'accounts:logout' %}">
+          Logout <i class="icon"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>

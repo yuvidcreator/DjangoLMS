@@ -1,0 +1,63 @@
+{% extends 'student/stud_base.html' %}{% load static %}
+{% block title %}{% endblock title %}
+{% block content %}
+<div class="sixteen wide mobile thirteen wide tablet thirteen wide computer right floated column" id="content" >
+    <div class="ui padded grid">
+
+      {% comment %}
+      <div class="row">
+        <h1 class="ui huge dividing header">Student Dashboard</h1>
+      </div>
+      <div class="center aligned row">
+        <div class="eight wide mobile eight wide tablet eight wide computer column" >
+          <a href="">
+            <img class="ui centered small circular image" src="{% static 'images/square-image.png' %}" />
+            <div class="ui large basic label">View Books &raquo;</div>
+            <p>Availability at Library</p>
+          </a>
+        </div>
+        <div class="eight wide mobile eight wide tablet eight wide computer column">
+          <a href="">
+            <img class="ui centered small circular image" src="{% static 'images/square-image.png' %}" />
+            <div class="ui large basic label">Books Issued &raquo;</div>
+            <p>To You</p>
+          </a>
+        </div>
+      </div>
+      {% endcomment %}
+
+      <div class="ui hidden section divider"></div>
+
+      <div class="row">
+        <h1 class="ui huge dividing header">All Available Books</h1>
+      </div>
+      <div class="row">
+        <table class="ui single line striped selectable unstackable table">
+          <thead>
+            <tr>
+              <th>Book No</th>
+              <th>Book Name</th>
+              <th>Author</th>
+              <th>Category</th>
+              <th>Entry Date</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for bk in books %}
+            <tr>
+              <td>{{bk.book_no}}</td>
+              <td>{{bk.book_name}}</td>
+              <td>{{bk.author}}</td>
+              <td>{{bk.category}}</td>
+              <td>{{bk.entry_date|date:"F d, Y"}}</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+{% endblock content %}
+
+{% block customJS %}
+{% endblock customJS %}

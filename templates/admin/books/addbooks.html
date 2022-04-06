@@ -1,0 +1,51 @@
+
+{% extends 'admin/admin_base.html' %}{% load static %}
+{% block title %}{% endblock title %}
+{% block content %}
+{% comment %}
+<div class="row">
+    <h1 class="ui huge dividing header">Admin Dashboard</h1>
+</div>
+  
+<div class="center aligned row">
+
+</div>
+{% endcomment %}
+
+<div class="ui hidden section divider"></div>
+<div class="row">
+    <h1 class="ui huge dividing header">Add Book to the Library</h1>
+    <div class="center aligned row">
+        <form class="ui form segment" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {% if user_form.is_valid and profile_form.is_valid  %}
+                <div class="alert alert-primary" role="alert">
+                    Details successfully updated!
+                </div>
+                <p class="small text-center pt-0">
+                    <a href="{% url 'account:dashboard' %}">Back to Dashboard</a>
+                </p>
+            {% else %}
+                <h3>Enter Books details</h3>
+                <p>You can edit your Books Details using the following form:</p>
+            {% endif %}
+            {% if form.errors %}
+                <div class="alert alert-primary" role="alert">
+                    Error: Please try again!
+                </div>
+            {% endif %}
+            
+            {{bkForm}}   
+            <br />
+            <button class="ui primary submit button" type="submit" role="button">Save Changes</button>
+            
+        </form>
+      </div>
+</div>
+<div class="row">
+    
+    <a class="ui large primary button" href="{% url 'accounts:admin_dashboard' %}">Back To Dashboard</a>
+    <br />
+      
+</div>
+{% endblock content %}

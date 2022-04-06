@@ -1,0 +1,67 @@
+{% extends 'admin/admin_base.html' %}{% load static %}
+{% block title %}{% endblock title %}
+{% block content %}
+<div class="row">
+    <h1 class="ui huge dividing header">Admin Dashboard</h1>
+</div>
+  
+  <div class="center aligned row">
+    <form class="ui form segment" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {% if user_form.is_valid and profile_form.is_valid  %}
+            <div class="alert alert-primary" role="alert">
+                Details successfully updated!
+            </div>
+            <p class="small text-center pt-0">
+                <a href="{% url 'account:dashboard' %}">Back to Dashboard</a>
+            </p>
+        {% else %}
+            <h3>Change your details</h3>
+            <p>You can edit your account using the following form:</p>
+        {% endif %}
+        {% if form.errors %}
+            <div class="alert alert-primary" role="alert">
+                Error: Please try again!
+            </div>
+        {% endif %}
+        
+        <div class="two fields">
+            <div class="field">
+                <label class="field">{{ user_form.user_name.label}}</label>
+                {{ user_form.user_name }}
+            </div>
+        
+            <div class="field">
+                <label class="field">{{ user_form.email.label}}</label>
+                {{ user_form.email }}
+            </div>
+        </div>
+
+        <div class="two fields">
+            <div class="field">
+                <label class="field">{{ user_form.first_name.label}}</label>
+                {{ user_form.first_name }}
+            </div>
+        
+            <div class="field">
+                <label class="field">{{ user_form.last_name.label}}</label>
+                {{ user_form.last_name }}
+            </div>
+        </div>
+        <div class="two fields">
+            <div class="field">
+                <label class="field">{{ user_form.mobile.label}}</label>
+                {{ user_form.mobile }}
+            </div>
+        
+            <div class="field">
+                <label class="field"> </label>
+                 
+            </div>
+        </div>       
+        
+        <button class="ui primary submit button" type="submit" role="button">Save Changes</button>
+        
+    </form>
+  </div>
+{% endblock content %}

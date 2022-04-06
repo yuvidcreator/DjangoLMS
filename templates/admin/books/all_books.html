@@ -1,0 +1,54 @@
+
+{% extends 'admin/admin_base.html' %}{% load static %}
+{% block title %}{% endblock title %}
+{% block content %}
+
+{% comment %}
+<div class="row">
+    <h1 class="ui huge dividing header">Admin Dashboard</h1>
+</div>
+  
+<div class="center aligned row">
+
+</div>
+{% endcomment %}
+
+<div class="ui hidden section divider"></div>
+  <div class="row">
+    <h1 class="ui huge dividing header">All Books Records</h1>
+  </div>
+  <div class="row">
+    <table class="ui single line striped selectable unstackable table">
+      <thead>
+        <tr>
+          <th>Action</th>
+          <th>Book Name</th>
+          <th>Author</th>
+          <th>Category</th>
+          <th>entry_date</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for bk in books %}
+        <tr>
+          <td>
+            <div class="ui left floating icon item">
+              <a href="{% url 'accounts:update_book_details' bk.id %}"><i class="edit icon"></i></a>
+            </div>
+            <div class="ui right floating icon item">
+              <a href="{% url 'accounts:delete_book' bk.id %}" style="color: red;"><i class="trash icon"></i></a>
+            </div>
+          </td>
+          <td><a href="{% url 'accounts:update_book_details' bk.id %}">{{bk.book_name}}</a></td>
+          <td>{{bk.author}}</td>
+          <td>{{bk.category}}</td>
+          <td>{{bk.entry_date|date:"F d, Y"}}</td>
+          <td>Update / Delete</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+
+{% endblock content %}

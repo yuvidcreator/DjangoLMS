@@ -1,0 +1,65 @@
+{% load static %}
+<div class="ui tablet computer only padded grid">
+    <div class="ui inverted borderless top fixed fluid menu">
+      <a class="header item" href="{% url 'accounts:student_dashboard' %}">Book Library</a>
+      <div class="right menu">
+        {% comment %}
+        <div class="item">
+          <div class="ui small input"><input placeholder="Search..." /></div>
+        </div>
+        {% endcomment %}
+        <div class="ui dropdown item">
+          Account <i class="dropdown icon"></i>
+          <div class="menu">
+            <a class="item" href="{% url 'accounts:student_dashboard' %}"> Dashboard </a> 
+            <div class="ui divider"></div>
+              <a class="item" href="{% url 'accounts:logout' %}">Logout</a> 
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="ui mobile only padded grid">
+    <div class="ui top fixed borderless fluid inverted menu">
+      <a class="header item" href="{% url 'accounts:student_dashboard' %}">Book Library</a>
+      <div class="right menu">
+        <div class="item">
+          <button class="ui icon toggle basic inverted button">
+            <i class="content icon"></i>
+          </button>
+        </div>
+      </div>
+      
+      <div class="ui vertical borderless inverted fluid menu">
+        <div class="ui dropdown item">
+          Profile<i class="dropdown icon"></i>
+          <div class="menu">
+            <a class="item" href="{% url 'accounts:student_dashboard' %}"> Dashboard</a>
+            <a class="item"> View Available Books</a>
+          </div>
+        </div>
+        {% comment %}
+        <div class="ui dropdown item">
+          Library<i class="dropdown icon"></i>
+          <div class="menu">
+            <a class="item"> View Available Books</a>
+            <a class="item"> Issued Books </a> 
+            <a class="item"> Requested Books </a>
+          </div>
+        </div>
+        <a class="item">Dashboard</a> 
+        <a class="item">Books</a>
+        <div class="ui fitted divider"></div>
+       
+        <div class="item">
+            <div class="ui small input">
+                <input placeholder="Search..." />
+            </div>
+        </div>
+        {% endcomment %}
+        <div class="ui fitted divider"></div>
+        <a class="item" href="{% url 'accounts:logout' %}">Logout</a> 
+      </div>
+    </div>
+  </div>
